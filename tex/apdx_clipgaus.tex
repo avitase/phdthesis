@@ -1,0 +1,29 @@
+\chapter{Clipped Gaussian Distribution}
+\label{chap:apdx_clipgaus}
+A large part of the free parameters of the fit model that we establish in Chap.~\ref{chap:fit} are fractions, such as $f_1$ and $f_s$, which are physically constrained to the interval $[0,1]$.
+These boundaries enhance the numerical stability of the fit and makes it easy to separate or disable components of the likelihood by fixing the fractions to zero or one.
+By design, $f \in [0,1]$ guarantees $0 \le \mathcal{L} \le 1$ and forbids negative signal yields which are meaningless for the present analysis.
+As a consequence, the nominal values of fitted yields $f$ which can be assumed to be Gaussian distributed, will accumulate excessively at $f=0$, \ie{}, the assumed Gaussian distribution
+\begin{equation*}
+    \mathcal{G}(x|\mu,\sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}} \, \mathrm{e}^{-\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2},
+\end{equation*}
+transforms, since $x$ is not distributed uniformly $\phi(x)=x$, but rather clipped at negative values $\phi(x) = \Theta(x) \, x$,
+\begin{equation*}
+    \mathcal{G}(x|\mu, \sigma) \; \xmapsto{\phi(x) = \Theta(x) \, x} \; \frac{\delta(x)}{2} \operatorname{erfc} \frac{\mu}{\sqrt{2}\sigma} + \mathcal{G}(x|\mu, \sigma) =: \tilde{\mathcal{G}}(x|\mu, \sigma) \,.
+\end{equation*}
+This clipping changes the moments non-trivially, in particular,
+\begin{align}
+    \langle x \rangle_{\tilde{\mathcal{G}}} &= \mu \left[ 1- \frac{1}{2} \operatorname{erfc} \frac{\mu}{\sqrt{2}\sigma} \right] + \frac{\sigma}{\sqrt{2 \pi}} \mathrm{e}^{-\frac{1}{2} \left( \frac{\mu}{\sigma} \right)^2} \neq \mu = \langle x \rangle_{\mathcal{G}} \,, \label{eq:apdx_clipgaus_mean} \\
+    \langle x^2 \rangle_{\tilde{\mathcal{G}}} &= \left( \mu^2 + \sigma^2 \right) \left[ 1- \frac{1}{2} \operatorname{erfc} \frac{\mu}{\sqrt{2}\sigma} \right] + \frac{\mu \sigma}{\sqrt{2 \pi}} \mathrm{e}^{-\frac{1}{2} \left( \frac{\mu}{\sigma} \right)^2} \neq \mu^2 + \sigma^2 = \langle x^2 \rangle_{\mathcal{G}} \,. \label{eq:apdx_clipgaus_std}
+\end{align}
+We note that, although the mean value is shifted, this does not contribute to a potential bias of the fit if the genuine yield (fraction) is non-zero, since it does not affect all values, but only unphysical $f<0$ fluctuations.
+
+If instead considering $\phi(x) = \Theta(x) \, x^2$ which would corresponds to a $\chi_1^2$-distribution with one \gls{dof} in the unclipped case with $\mu=0$ and $\sigma=1$, the distribution now becomes a clipped $\chi^2$-distribution:
+\begin{equation*}
+    \mathcal{G}(x|0, 1) \; \xmapsto{\phi(x) = \Theta(x) \, x^2} \; \frac{1 + \delta(x)}{2} \frac{\exp(-x/2)}{\sqrt{2 \pi x}} = \frac{1 + \delta(x)}{2} \chi_1^2(x) =: \tilde \chi_1^2(x) \,.
+\end{equation*}
+The mean and variances of $\tilde \chi_1^2(x)$ are
+\begin{align}
+    \langle x \rangle_{\tilde\chi_1^2} &= \frac{1}{2} \langle x \rangle_{\chi_1^2} = \frac{1}{2} \,, \label{eq:apdx_clipchisq_mean} \\
+    \langle x^2 \rangle_{\tilde\chi_1^2} - \langle x \rangle_{\tilde\chi_1^2}^2 &= \frac{1}{2} \langle x^2 \rangle_{\chi_1^2} - \frac{1}{4} \langle x \rangle_{\chi_1^2}^2 = \frac{3}{2} - \frac{1}{4} = \frac{5}{4} \,. \label{eq:apdx_clipchisq_std}
+\end{align}

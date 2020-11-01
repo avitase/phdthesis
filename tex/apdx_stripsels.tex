@@ -1,0 +1,162 @@
+\chapter{Stripping Selections}
+In this appendix we list preselection steps of the so-called \textit{\gls{stripping}} phase during reconstruction of \decay{\Lb}{\jpsi\Lz}, \decay{\Lb}{\Dz\Lz}, and \decay{\Lb}{\Dz\proton\pim} decays in Tab.~\ref{tab:LbToJpsiLz_stripsel}, Tab.~\ref{tab:LbToDzLz_stripsel} and Tab.~\ref{tab:LbToDzppi_stripsel}, respectively.
+The optimization of these selection requirements was not objective of the present analysis and, due to the deep encoding in the data storing process during data taking, should be considered immutable in the context of the present analysis.
+Most requirements are considered \textit{loose} and are superseded by thresholds in the subsequent selection steps.
+We refer to Sec.~\ref{sec:selvar} for an explanation of the acronyms and abbreviations.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Selection criteria of the preselection step used for reconstructing \decay{\Lb}{\jpsi\Lz}. \textit{Combination} selections are evaluated before applying a vertex fit, whereas \textit{mother} selections are refined by such a fit. Variables and acronyms are explained Sec.~\ref{sec:selvar}.}
+    \label{tab:LbToJpsiLz_stripsel}
+
+    \begin{tabular}{lll}
+        \toprule
+        Particle & Type & Selection \\
+        \midrule
+        \muon & \multicolumn{1}{c}{--} & $\pt > 0.5\,\gevc$ \\
+        \muon & \multicolumn{1}{c}{--} & $\operatorname{\dll}(\muon - \pion) > 0$ \\
+        \midrule
+        \proton & \multicolumn{1}{c}{--} & $p > 2\,\gevc$ \\
+        \proton & \multicolumn{1}{c}{--} & $\pt > 0.25\,\gevc$ \\
+        \proton (L) & \multicolumn{1}{c}{--} & $\operatorname{\dll}(\proton - \pion) > -5$ \\
+        \proton (L) & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 9$ \\
+        \proton (D) & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 4$ \\
+        \midrule
+        \pion & \multicolumn{1}{c}{--} & $p > 2\,\gevc$ \\
+        \pion & \multicolumn{1}{c}{--} & $\pt > 0.1\,\gevc$ \\
+        \pion (L) & \multicolumn{1}{c}{--} & $\operatorname{\dll}(\proton - \pion) > -5$ \\
+        \pion (L) & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 9$ \\
+        \pion (D) & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 4$ \\
+        \midrule
+        at least one final state & \multicolumn{1}{c}{--} & $p > 10\,\gevc$ \\
+        at least one final state & \multicolumn{1}{c}{--} & $\pt > 1.7\,\gevc$ \\
+        at least one final state & \multicolumn{1}{c}{--} & $\chi^2 / $\gls{dof} of track fit $<4$ \\
+        at least one final state & \multicolumn{1}{c}{--} & min. dist.\ to any \gls{pv} $>4 \sigma$ and $> 0.1\,$mm \\
+        \midrule
+        \jpsi & combination & $|m(\jpsi) - \text{\pdg}| < 150\,\mevcc$ \\
+        \jpsi & combination & $\chi^2$ of $\operatorname{\doca}(\mup,\mun) < 20$ \\
+        \jpsi & mother & $|m(\jpsi) - \text{\pdg}| < 80\,\mevcc$ \\
+        \jpsi & mother & $\chi^2$ of end vertex $<16$ \\
+        \midrule
+        \Lz (\gls{LL}) & combination & $|m(\Lz) - \text{\pdg}| < 50\,\mevcc$ \\
+        \Lz (\gls{DD}) & combination & $|m(\Lz) - \text{\pdg}| < 80\,\mevcc$ \\
+        \Lz (\gls{LL}) & combination & $\chi^2$ of $\operatorname{\doca}(\proton,\pim) < 30$ \\
+        \Lz (\gls{DD}) & combination & $\chi^2$ of $\operatorname{\doca}(\proton,\pim) < 25$ \\
+        \Lz & mother & $|m(\Lz) - \text{\pdg}| < 15\,\mevcc$ \\
+        \Lz & mother & $\chi^2$ of end vertex $<20$ \\
+        \midrule
+        \Lb & combination & $5.02 \le m(\Lb) \le 6.22\,\gevcc$ \\
+        \Lb & mother & $5.12 \le m(\Lb) \le 6.12\,\gevcc$ \\
+        \Lb & mother & $\chi^2 / $\gls{dof} of end vertex $<10$ \\
+        \Lb & mother & lifetime w.r.t.\ best \gls{pv} $>0.2\,$ps \\
+        \Lb & mother & \dchisqip w.r.t.\ best \gls{pv} $<25$ \\
+        \Lb & mother & \dira{} w.r.t.\ best \gls{pv} $>0.999$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Selection criteria of the preselection step used for reconstructing \decay{\Lb}{\Dz\Lz}. \textit{Combination} selections are evaluated before applying a vertex fit, whereas \textit{mother} selections are refined by such a fit. Variables and acronyms are explained Sec.~\ref{sec:selvar}. At this early stage of the analysis, the final states of \Dz are not treated differently and in order to avoid ambiguity with the \pion from \decay{\Lz}{\proton\pim} we refer to them as \Ph for the sake of brevity.}
+    \label{tab:LbToDzLz_stripsel}
+    \begin{tabular}{lll}
+        \toprule
+        Particle & {Type} & Selection \\
+        \midrule
+        \proton & \multicolumn{1}{c}{--} & $p > 2\,\gevc$ \\
+        \proton & \multicolumn{1}{c}{--} & $\pt > 0.25\,\gevc$ \\
+        \proton (L) & \multicolumn{1}{c}{--} & $\operatorname{\dll}(\proton - \pion) > -5$ \\
+        \proton (L) & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 9$ \\
+        \proton (D) & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 4$ \\
+        \midrule
+        \pion & \multicolumn{1}{c}{--} & $p > 2\,\gevc$ \\
+        \pion & \multicolumn{1}{c}{--} & $\pt > 0.1\,\gevc$ \\
+        \pion (L) & \multicolumn{1}{c}{--} & $\operatorname{\dll}(\proton - \pion) > -5$ \\
+        \pion (L) & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 9$ \\
+        \pion (D) & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 4$ \\
+        \midrule
+        \Ph & \multicolumn{1}{c}{--} & $p > 1\,\gevc$ \\
+        \Ph & \multicolumn{1}{c}{--} & $\pt > 0.1\,\gevc$ \\
+        \Ph & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 4$ \\
+        \Ph & \multicolumn{1}{c}{--} & $\chi^2 / $\gls{dof} of track fit $<4$ \\
+        \Ph & \multicolumn{1}{c}{--} & \gls{ghostprob} $<0.4$ \\
+        \midrule
+        at least one final state & \multicolumn{1}{c}{--} & $p > 10\,\gevc$ \\
+        at least one final state & \multicolumn{1}{c}{--} & $\pt > 1.7\,\gevc$ \\
+        at least one final state & \multicolumn{1}{c}{--} & $\chi^2 / $\gls{dof} of track fit $<4$ \\
+        at least one final state & \multicolumn{1}{c}{--} & min. dist.\ to any \gls{pv} $>4 \sigma$ and $> 0.1\,$mm \\
+        all final states $i$ & \multicolumn{1}{c}{--} & $\sum_i \pt^{(i)} > 5\,\gevc$ \\
+        any \Ph & \multicolumn{1}{c}{--} & $\pt > 0.5\,\gevc$ \\
+        any \Ph & \multicolumn{1}{c}{--} & $p > 5\,\gevc$ \\
+        \midrule
+        \Dz & combination & $1764.84 \le m(\Km\pip) \le 1964.84\,\mevcc$ \\
+        \Dz & combination & $\operatorname{\doca}(\Km,\pip) < 0.5\,$mm \\
+        \Dz & mother & $\chi^2 / $\gls{dof} of end vertex $<10$ \\
+        \Dz & mother & $\chi^2$ distance to best \gls{pv} $>36$ \\
+        \midrule
+        \Lz (\gls{LL}) & combination & $|m(\Lz) - \text{\pdg}| < 50\,\mevcc$ \\
+        \Lz (\gls{DD}) & combination & $|m(\Lz) - \text{\pdg}| < 80\,\mevcc$ \\
+        \Lz (\gls{LL}) & combination & $\chi^2$ of $\operatorname{\doca}(\proton,\pim) < 30$ \\
+        \Lz (\gls{DD}) & combination & $\chi^2$ of $\operatorname{\doca}(\proton,\pim) < 25$ \\
+        \Lz & mother & $|m(\Lz) - \text{\pdg}| < 15\,\mevcc$ \\
+        \Lz & mother & $\chi^2$ of end vertex $<20$ \\
+        \midrule
+        \Lb & combination & $5.02 \le m(\Lb) \le 6.22\,\gevcc$ \\
+        \Lb & mother & $5.12 \le m(\Lb) \le 6.12\,\gevcc$ \\
+        \Lb & mother & $\chi^2 / $\gls{dof} of end vertex $<10$ \\
+        \Lb & mother & lifetime w.r.t.\ best \gls{pv} $>0.2\,$ps \\
+        \Lb & mother & \dchisqip w.r.t.\ best \gls{pv} $<25$ \\
+        \Lb & mother & \dira{} w.r.t.\ best \gls{pv} $>0.999$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Selection criteria of preselection used for reconstructing \decay{\Lb}{\Dz\proton\pim}. \textit{Combination} selections are evaluated before applying a vertex fit, whereas \textit{mother} selections are refined by such a fit. Variables and acronyms are explained Sec.~\ref{sec:selvar}. At this early stage of the analysis, the final states of \Dz are not treated differently and in order to avoid ambiguity with the \pim from \decay{\Lb}{\Dz\proton\pim} we refer to them as \Ph for the sake of brevity.}
+    \label{tab:LbToDzppi_stripsel}
+    \begin{tabular}{lll}
+        \toprule
+        Particle & {Type} & Selection \\
+        \midrule
+        \Ph & \multicolumn{1}{c}{--} & $p > 1\,\gevc$ \\
+        \proton & \multicolumn{1}{c}{--} & $p > 2\,\gevc$ \\
+        \pion & \multicolumn{1}{c}{--} & $p > 2\,\gevc$ \\
+        \midrule
+        \proton & \multicolumn{1}{c}{--} & $\operatorname{\dll}(\proton - \pion) > -10$ \\
+        \pion & \multicolumn{1}{c}{--} & $\operatorname{\dll}(\kaon - \pion) < 20$ \\
+        \midrule
+        at least one final state & \multicolumn{1}{c}{--} & $p > 10\,\gevc$ \\
+        at least one final state & \multicolumn{1}{c}{--} & $\pt > 1.7\,\gevc$ \\
+        at least one final state & \multicolumn{1}{c}{--} & $\chi^2 / $\gls{dof} of track fit $<4$ \\
+        at least one final state & \multicolumn{1}{c}{--} & min. dist.\ to any \gls{pv} $>4 \sigma$ and $> 0.1\,$mm \\
+        all final states & \multicolumn{1}{c}{--} & $\pt > 0.1\,\gevc$ \\
+        all final states & \multicolumn{1}{c}{--} & min. $\chi^2$ dist.\ to any \gls{pv} $> 4$ \\
+        all final states & \multicolumn{1}{c}{--} & $\chi^2 / $\gls{dof} of track fit $<4$ \\
+        all final states & \multicolumn{1}{c}{--} & \gls{ghostprob} $<0.4$ \\
+        all final states $i$ & \multicolumn{1}{c}{--} & $\sum_i \pt^{(i)} > 5\,\gevc$ \\
+        any among $\{\proton, \pion\}$ & \multicolumn{1}{c}{--} & $\pt > 0.5\,\gevc$ \\
+        any among $\{\proton, \pion\}$ & \multicolumn{1}{c}{--} & $p > 5\,\gevc$ \\
+        any \Ph & \multicolumn{1}{c}{--} & $\pt > 0.5\,\gevc$ \\
+        any \Ph & \multicolumn{1}{c}{--} & $p > 5\,\gevc$ \\
+        \midrule
+        \Dz & combination & $1764.84 \le m(\Km\pip) \le 1964.84\,\mevcc$ \\
+        \Dz & combination & $\operatorname{\doca}(\Km,\pip) < 0.5\,$mm \\
+        \Dz & mother & $\chi^2 / $\gls{dof} of end vertex $<10$ \\
+        \Dz & mother & $\chi^2$ distance to best \gls{pv} $>36$ \\
+        \midrule
+        \proton\pim & combination & $\pt > 1\,\gevc$ \\
+        \proton\pim & combination & $m(\proton\pion) < 5\,\gevcc$ \\
+        \proton\pim & combination & $\operatorname{\doca}(\proton,\pim) < 0.5\,$mm \\
+        \proton\pim & mother & $\chi^2$ of end vertex $<16$ \\
+        \proton\pim & mother & $\chi^2$ dist.\ to best \gls{pv} $>16$ \\
+        \midrule
+        \Lb & combination & $5.02 \le m(\Lb) \le 6.22\,\gevcc$ \\
+        \Lb & mother & $5.12 \le m(\Lb) \le 6.12\,\gevcc$ \\
+        \Lb & mother & $\chi^2 / $\gls{dof} of end vertex $<10$ \\
+        \Lb & mother & lifetime w.r.t.\ best \gls{pv} $>0.2\,$ps \\
+        \Lb & mother & \dchisqip w.r.t.\ best \gls{pv} $<25$ \\
+        \Lb & mother & \dira{} w.r.t.\ best \gls{pv} $>0.999$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}

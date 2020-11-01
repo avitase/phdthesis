@@ -1,0 +1,25 @@
+\chapter{Ensemble Learning}
+\label{chap:apdx_forest}
+\chapquote{Trees sprout up just about everywhere in computer science.}{Donald Knuth, in his book \textit{Combinatorial Algorithms} (4A).}
+Ensemble learning techniques build upon the observation that an ensemble of weak learners, \ie{}, classifiers that were not provided with the complete set of available information during training (\eg{}, in terms of number of training instances or number of features), can outperform single classifiers that where provided with the entire available information, when aggregated properly.
+
+A straightforward realization of an ensemble learner is called \textit{stacking}~\cite{stacking} where the output of trained classifiers (tier 1) is fed into another classifier (tier 2).
+This tier 2 classifier aggregates the outputs of tier 1, uses them as its feature set and outputs the final decision.
+
+Another kind of ensemble learning is achieved by bagging (short for bootstrap aggregation)~\cite{bagging} where the same classifier is trained on different random subsets of the training set.
+Additional randomness (and thus a greater diversity) is achieved by only using certain random subsets of the available feature set.
+This again increases the diversity among the classifiers which typically increase the bias of each classifier but decreases the overall bias and variance of the aggregation.
+When bagging and feature sampling is used for growing decision trees, the aggregation (typically referred to as the \textit{forest}), is called a \textit{Random Forest}~\cite{rforest}.
+Each tree of such a forest is trained by optimizing thresholds which partition the data set at each node.
+The thresholds are optimized w.r.t.\ a certain criterion (\eg{}, Gini impurity or entropy\footnote{Gini impurity $G = 1 - \sum_k p_k^2$ and entropy $H = -\sum_k p_k \ln p_k$, where $p_k \in [0,1]$ is the fraction of class $k$ in a given set.}) where first, the best thresholds for each of the given features is found and secondly, the overall best threshold among the optimized thresholds is used for partitioning.
+If the first step is replaced by drawing a random threshold, the forest is called (a forest of) \textit{Extra Trees} (short for \textit{Extremely Randomized Trees})~\cite{etrees}.
+
+\textit{Boosting} is yet another ensemble learning technique where sequentially trained classifiers try to correct their predecessor.
+When using decision trees, two major kinds of boosting are common, \ie{}, \textit{Gradient Boosting} and \textit{Adaptive Boosting}~\cite{gboosting,adaboosting}.
+For the former (typically referred to as \textit{\gls{bdt}}) regression trees are fitted to the residual errors of the predecessor which makes the aggregation the linear sum of all trained classifiers.
+The latter (typically referred to as \textit{Ada.~\gls{bdt}}) uses weights instead of the residuals in order to increase the focus on misclassified events in subsequent evaluations.
+Note that in order to deal with residuals, regression trees have to be used rather than ordinary binary decision trees and thus mean squared errors (MSE) are used as a criterion.
+Technically, the aggregation is achieved by summing the decisions of the sequentially trained classifiers in a loss function.
+For \glspl{bdt} using gradient and adaptive boosting the loss function is referred to as \textit{deviance} and \textit{exponential}, respectively.
+More information is given in the literature, in particular in Ref.~\cite{handsonml}.
+

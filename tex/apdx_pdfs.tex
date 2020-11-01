@@ -1,0 +1,44 @@
+\chapter{The Exponential Function as a PDF}
+The normalized exponential function $f(x|k)$ has one free parameter $k$
+\begin{equation*}
+    f(x|k) = \mathcal{N} \mathrm{e}^{-kx} \,,
+\end{equation*}
+given a sufficient normalization factor $\mathcal{N}$.
+For a given normalization interval $[a_1,a_2]$ parts of the normalization factor $\mathcal{N}$ can be moved into the argument of the exponential function
+\begin{equation}
+    \label{eq:apdx_pdfs_exp}
+    f(x|k) = \frac{k \, \mathrm{e}^{-k(x-a_1)}}{1 - \mathrm{e}^{-k(a_2-a_1)}} \,.
+\end{equation}
+In the limit $k \to 0$ Eq.~\eqref{eq:apdx_pdfs_exp} is well defined
+\begin{equation*}
+    \lim_{k \to 0} f(x|k) = 1,
+\end{equation*}
+but numerically unstable.
+Math libraries typically implement the relative error exponential function 
+\begin{equation*}
+    \texttt{exprel}(x) := \frac{\mathrm{e}^x - 1}{x} \,,
+\end{equation*}
+to avoid the loss of precision that occurs when $x$ is near zero.
+Using this definition of \texttt{exprel} Eq.~\eqref{eq:apdx_pdfs_exp} can be rewritten
+\begin{equation}
+    \label{eq:apdx_pdfs_exprel}
+    f(x|k) = \frac{\mathrm{e}^{-k(x-a_1)}}{(a_2-a_1) \, \texttt{exprel}(-k(a_2-a_1))} \,,
+\end{equation}
+and now allows sign flips of $k$ during the fitting process.
+
+Fitting an exponential function on a single interval can easily be generalized for piecewise fits on two disjoint normalization intervals $[a_1,a_2]$ and $[b_1,b_2]$.
+Doing so changes the normalization factor and Eq.~\eqref{eq:apdx_pdfs_exprel} becomes
+\begin{equation}
+    \label{eq:apdx_pdfs_exprel2}
+    f(x|k) = \frac{\mathrm{e}^{-k(x-a_1)}}{(a_2-a_1) \, \texttt{exprel}(-k(a_2-a_1)) + (b_2 - b_1) \, \mathrm{e}^{-k(b_1 - a_1)} \, \texttt{exprel}(-k(b_2-b_1))} \,.
+\end{equation}
+In both cases the integral in $x$ can be written as
+\begin{equation}
+    \label{eq:apdx_pdfs_exprelint}
+    \int_{x_1}^{x_2} \! \mathrm{d}x \, f(x|k) = (x_2 - x_1) \, \texttt{exprel}\left(-k (x_2 - x_1) \right) \times f(x_1|k) \,.
+\end{equation}
+This relation is useful when a fit for $k$ is used to inter- or extrapolate yields in given regions.
+An uncertainty approximation by applying ordinary error propagation needs the derivative w.r.t.\ $k$ of Eq.~\eqref{eq:apdx_pdfs_exprelint} which is cluttered and again suffers from numerical instabilities.
+When error propagation is needed, we will therefore revert to a numerical approach.
+Eq.~\eqref{eq:apdx_pdfs_exprelint} is then evaluated for Gaussian distributed values of $k \sim \mathcal{G}(\mu,\sigma)$, where $\mu$ and $\sigma$ are the results of the preceding fit, and sorted.
+The interval that spans a fraction of $\operatorname{erf}(1 / \sqrt 2) \approx 68\,\%$ of the sorted values, centered at the median is then taken as an approximation of the uncertainty interval.

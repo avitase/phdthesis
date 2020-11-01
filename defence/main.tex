@@ -1,0 +1,84 @@
+\documentclass[compress,aspectratio=1610]{beamer}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[ngerman]{babel}
+%\usepackage{hyphenat}
+%\inputencoding{utf8}
+%\makeatother
+
+\usepackage[english]{babel}
+\usepackage[english]{isodate}
+\isodate
+\usepackage{multicol}
+
+\usepackage{csquotes}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{slashed}
+\usepackage{mathtools}
+
+\usepackage{xfrac}
+
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{overpic}
+\DeclareGraphicsExtensions{.png}
+\graphicspath{{../img/}{../img/defence/}}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes,arrows,positioning}
+
+\usetheme{vertex}
+
+\usepackage{booktabs}
+
+\usepackage{ifthen}
+\newboolean{uprightparticles}
+\setboolean{uprightparticles}{false}
+\input{lhcb-symbols-def}
+
+\newcommand{\ftnt}{\ensuremath{{}^{\color{vertexDarkRed}\star}}}
+\newcommand{\ftntdagger}{\ensuremath{{}^{\color{vertexDarkRed}\dagger}}}
+\newcommand{\ftntasterix}{\ensuremath{{}^{\color{vertexDarkRed}*}}}
+\def\Bds{{\ensuremath{\B^0_{(\squark)}}}\xspace}
+\def\Bdsb{{\ensuremath{\Bbar{}^0_{(\squark)}}}\xspace}
+
+\newcommand{\backupbegin}{
+   \newcounter{framenumberappendix}
+   \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}} 
+}
+
+\linespread{1.1}
+
+\title{Search for Rare \bquark to Open-Charm Two-Body Decays of Baryons at LHCb}
+%{Suche nach seltenen \bquark nach Open-Charm Zweikörperzerfällen von Baryonen am LHCb Experiment}
+\subtitle{Promotionsverteidigung}
+\date{Rostock, October 9th 2020}
+\author{Nis Meinert}
+
+\begin{document}
+
+\maketitle
+
+\input{intro}
+\input{mva}
+\input{fit}
+
+\appendix
+
+\begin{frame}[plain,noframenumbering]
+    \centering
+    \scalebox{2}{BACKUP}
+\end{frame}
+
+\backupbegin
+\input{backup}
+\backupend
+
+\end{document}

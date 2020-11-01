@@ -1,0 +1,184 @@
+\chapter{Yield Estimation}
+\label{chap:fit}
+\chapquote{With four parameters I can fit an elephant, and with five I can make him wiggle his trunk.}{Discovered by John von Neumann and exercised in Ref.~\cite{fourparams}.}
+In this chapter we establish a fit model to extract signal yields from \num{260} signal candidates which are left after applying the previously outlined selection criteria to the \gls{runtwo} data sample.
+This sparse data sample forces us to assume certain constraints and work with approximations.
+We outline our assumptions and meticulously evaluate our fit model which eventually allows us to obtain signal yields and yield significances for the decay modes \decay{\Lb}{\Dz\Lz} and \decay{\Xibz}{\Dz\Lz}.
+
+\section{The Fit Model}
+\label{sec:fit_model}
+Due to the small amount of available recorded signal candidates that passed the dedicated filtering steps and the absence of a precise background model in terms of statistics and polarization, we base our fit model onto the following assumptions:
+\begin{itemize}
+    \item The kinematic properties of the final states of signal and background events are following similar distributions, since they would have been filtered out by the preceding filtering steps otherwise. Their resolution is thus given by the signal shape of the \Lb or \Xibz baryon which are accessible through the respective \gls{mc} simulated decays in good approximation. This assumption is based on the short lifetime of the \bquark-hadrons w.r.t.\ the detector resolution, corresponding to a natural width of roughly $0.4\,\millievcc$.
+    \item Due to the absence of a priori knowledge concerning the polarization of the \Dstarz and \Sz states in \decay{\Lb}{\Dstarz\Lz} and \decay{\Lb}{\Dz\Sz}, it is not possible to unfold the contribution of the latter from the broad $\Dz\piz$ and $\Dz\Pgamma$ decay modes of the former (\cf{}~Tab.~\ref{tab:apdx_partbkg_boundaries}). We verify this assumption with pseudo-experiments. The same assumption holds for the very broad (potential) background of \decay{\Xibz}{\Dz\Xiz} decays.
+    \item For similar reasons we fix the yield ratio of the fit components of \decay{\Dstarz}{\Dz\piz} and \decay{\Dstarz}{\Dz\Pgamma} to its central value of $1.83$ measured by the \gls{babar} and \gls{besiii} collaborations and fitted by the \gls{pdg}~\cite{DstarBrs1,DstarBrs2,pdg}. Further, neither the ratio of the fitted yields of \decay{\Lb}{\Dz\Lz} and \decay{\Lb}{\Dstarz\Lz}, nor of \decay{\Xibz}{\Dz\Lz} and \decay{\Xibz}{\Dstarz\Lz}, nor of \decay{\Lb}{\Dz\Lz} and \decay{\Xibz}{\Dz\Lz} itself, should depend on the track type of the daughters of the \Lz baryon and are therefore fitted simultaneously for both track types. For \decay{\Lb}{\Dz\Lz} and \decay{\Xibz}{\Dz\Lz}, we cross-check this assumption with \gls{mc} simulated events. The double ratio (\cf{}~Tab.~\ref{tab:fit_ndatasamples}) is $1.026(23)$ and barely significantly deviates from one. The central value is less than $3\,\%$ which is negligible w.r.t.\ the total systematic uncertainties.
+    \item The combinatorial background follows an exponential function which we parametrize according to Eq.~\eqref{eq:apdx_pdfs_exprel}. Our choice of parameter $k$'s sign is physically motivated but not required during the fits. We note that this implicitly includes the linear model $1 \pm kx$ for small values of $k$ and in particular the uniformly distributed (combinatorial) background for $k=0$.
+\end{itemize}
+The fit is applied to the combined invariant mass of \Dz and \Lz candidates and evaluated simultaneously on the unbinned datasets of simulated and recorded events of both track types.
+The total amount of available events for each of these six samples is listed in Tab.~\ref{tab:fit_ndatasamples}.
+\begin{table}[htbp]
+    \centering
+    \caption{Amount of \gls{mc} simulated and recorded events available for fitting. The fit is evaluated simultaneously in all six samples. Further, we give the (weighted) fraction for the \gls{mc} simulated events w.r.t.\ the amount of events $N$, after the preselection. The double ratio of these fractions is $1.025(24)$ and thus barely deviate from one significantly.}
+    \label{tab:fit_ndatasamples}
+    \begin{tabular}{l%
+                    S[table-format=5.2]%
+                    S[separate-uncertainty=false,table-format=2.1(2)]%
+                    S[table-format=5.2]%
+                    S[separate-uncertainty=false,table-format=2.2(2)]}
+        \toprule
+        & \multicolumn{2}{c}{{\Gls{LL}}} & \multicolumn{2}{c}{{\Gls{DD}}} \\
+        & {$n$} & {$n/N$ [\%]} & {$n$} & {$n/N$ [\%]} \\
+        \midrule
+        %MC sim.\ \decay{\Lb}{\Dz\Lz} & 5682 & 36.0 \pm .4 & 5548 & 15.42 \pm .19 \\
+        %MC sim.\ \decay{\Xibz}{\Dz\Lz} & 6244 & 35.0 \pm .4 & 6432 & 15.37 \pm .18 \\
+        \gls{mc} sim.\ \decay{\Lb}{\Dz\Lz} & 5682 & 36.0 \pm .4 & 5548 & 13.81 \pm .19 \\
+        \gls{mc} sim.\ \decay{\Xibz}{\Dz\Lz} & 6244 & 35.0 \pm .4 & 6432 & 13.27 \pm .18 \\
+        rec.\ data & 113 & {--} & 147 & {--} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+The fit model is a normalized, weighted sum of the three components $\mathcal{S}$, $\mathcal{D}$ and $\mathcal{B}$, describing the \Lb / \Xibz signal, the \Dstarz background and the combinatorial background, respectively,
+\begin{equation}
+    \label{eq:fit_likelihood}
+    \mathcal{L} := \left\lVert \begin{pmatrix} \mathcal{S} \\ \mathcal{D} \\ \mathcal{B} \end{pmatrix} \right\rVert_{\vec f} \equiv (1-f_1) \times \mathcal{S} \, + \, (1-f_2)f_1 \times \mathcal{D} \, + \, f_1 f_2 \times \mathcal{B} \,.
+\end{equation}
+For brevity we introduced the shorthand notation 
+\begin{equation*}
+    \left\lVert \vec{\mathcal{V}} \right\rVert_{\vec f} \, := \sum_{j=1}^n p_j \! \left( \vec{f}\, \right) \times \mathcal{V}_j \,,
+\end{equation*}
+which wraps the (normalized) weighted sum of the components $\vec{\mathcal{V}} = (\mathcal{V}_1, \ldots \mathcal{V}_n)$ with weights $\vec{f} = (f_1, \ldots f_{n-1})$, by defining $p_j$ according to
+\begin{align*}
+    p_j &:= (1-f_j) \prod_{i=1}^{j-1} f_i \quad \text{for } j < n \,, \\
+    p_n &:= \prod_{i=1}^{n-1} f_i \,.
+\end{align*}
+Using this notation we define $\mathcal{S}$ and $\mathcal{D}$ for \Lb and \Xib:
+\begin{align*}
+    \mathcal{S} &:= \left\lVert \begin{pmatrix} \mathcal{G}^{(2)}(\Xib) \\ \mathcal{G}^{(2)}(\Lb) \end{pmatrix} \right\rVert_{f_s} \,, \\
+    \mathcal{D} &:= \left\lVert \begin{pmatrix} \mathcal{K}(\Xib) * \mathcal{G}^{(2)}_c(\Lb) \\ \mathcal{K}(\Lb) * \mathcal{G}^{(2)}_c(\Lb) \end{pmatrix} \right\rVert_{f_\Dstar} \,,
+\end{align*}
+where $\mathcal{G}^{(2)}$ ($\mathcal{G}_c^{(2)}$) refers to a double Gaussian with shared (zero) mean
+\begin{equation*}
+    \mathcal{G}^{(2)} := \left\lVert \begin{pmatrix} \mathcal{G}_1 \\ \mathcal{G}_2 \end{pmatrix} \right\rVert_{f_\mathcal{G}} \,,
+\end{equation*}
+and $\mathcal{K}$ are the kernel functions for \decay{\Lb/\Xibz}{\Dstarz\Lz} decays as introduced in Appx.~\ref{chap:apdx_partbkg}.
+More precisely, the latter is composed of the fixed superposition of the \Dstarz modes \decay{\Dstarz}{\Dz\piz} and \decay{\Dstarz}{\Dz\Pgamma}, and is convoluted with the resolution function as motivated previously.
+During evaluation of the likelihood for the \gls{mc} simulated samples, the corresponding signal component is separated by enforcing $(f_1,f_s)=(0,0)$ or $(f_1,f_s)=(0,1)$.
+Besides that, $f_2$ and $f_s$ are constrained to not depend on the track type, whereas $f_1$ is allowed to vary among different track types.
+Similarly, the Gaussian shapes
+\begin{align*}
+    \mathcal{G}_1 &:= \begin{cases}
+        \mathcal{G}(x|\mu,\sigma_1^\text{(LL)}) & \text{for \gls{LL}} \,,\\
+        \mathcal{G}(x|\mu + \Delta \mu,\sigma_1^\text{(DD)}) & \text{for \gls{DD}} \,,\\
+    \end{cases} \\ 
+    \mathcal{G}_2 &:= \begin{cases}
+        \mathcal{G}(x|\mu,\sigma_2^\text{(LL)}) & \text{for \gls{LL}} \,,\\
+        \mathcal{G}(x|\mu + \Delta \mu,\sigma_2^\text{(DD)}) & \text{for \gls{DD}} \,,\\
+    \end{cases}
+\end{align*}
+are allowed to deviate among different track types.
+This includes $f_\mathcal{G}$ and the shared mean value, technically encoded by the shared shift $\Delta \mu$.
+
+The unbinned, single entry fit w.r.t.\ Eq.~\eqref{eq:fit_likelihood} is performed with different configurations of fixed and floating parameters and within the two different mass ranges $5.5 \le m(\Dz\Lz) \le 6\,\gevcc$ and $5.2 \le m(\Dz\Lz) \le 6\,\gevcc$.
+We tried different combinations of floating and fixed polarizations in the \Dstar kernel functions $\mathcal{K}$ but could not obtain reasonable results.
+Thus we stick to an unpolarized description, leaving with six configurations which yield converging fits:
+\begin{enumerate}
+    \item Using the narrow mass range $5.5 \le m(\Dz\Lz) \le 6\,\gevcc$ cuts off most of the \decay{\Lb}{\Dstarz\Lz} background. The value of the fraction $f_\Dstar$ is thus fixed to zero, making $f_2$ the yield of \decay{\Xibz}{\Dstarz\Lz} and leaves 22 floating parameters that are optimized by the fit. The fit converges successfully, but prefers $f_2=1$ (upper boundary). The fitted values are listed in Tab.~\ref{tab:fit_fitres1}. In Fig.~\ref{fig:fit_hLbM_data_fit1} we show the accumulated projection of recorded data and the fit function. Other projections are shown in Appx.~\ref{chap:apdx_fitsupp}. 
+    \item In order to extract the significance of the signal yields observed with the previous fit, we fix all contributions coming from \gls{mc} simulated events, keep $f_\Dstar$ fixed to zero and disable \Dstarz contributions in accordance with the previous results by enforcing $f_2$ to one. The likelihood Eq.~\eqref{eq:fit_likelihood} is then maximized with $f_s$ fixed to one and zero, corresponding to the removal of the \Xibz and \Lb component, respectively, and then compared with the results when $f_s$ is a floating parameter. The projection of recorded data of the former two fits is shown in Fig.~\ref{fig:fit_hLbM_data_fit23} together with respective fit projections. Since the fits with $f_s$ set to one and zero have exactly one \gls{dof} less than the fit which allows floating values for $f_s$, the difference of their respective log-likelihoods $\Delta \! \ln \mathcal{L}$ can be used to approximate the (statistical) significance $S = \sqrt{-2 \Delta \! \ln \mathcal{L}}$. Doing so, we estimate a signal significance of $S=5.5$ and $S=1.8$ for the decays \decay{\Lb}{\Dz\Lz} and \decay{\Xibz}{\Dz\Lz}, respectively. This approximation is based on Wilks theorem~\cite{wilkstheorem} whose applicability is tested with a pseudo-experiment in Sec.~\ref{sec:fit_wilkstest}.
+    \item In order to estimate the significance of the \decay{\Lb}{\Dstarz\Lz} background, we reevaluate the fit using the broad mass range $5.2 \le m(\Dz\Lz) \le 6\,\gevcc$ and keep all fit parameters floating. The invariant mass distributions and fit projections of recorded data are shown in Fig.~\ref{fig:fit_hLbM_data_fit3}. We note that $f_2$ does not depend on the track type, presumably causing the combinatorial background for \gls{LL} tracks to overshoot at low $m(\Dz\Lz)$ values.
+    \item Extending the fit model and allowing $f_2$ to take on different values for different tack types fixes the issues that we observed during the previous fit (\cf{}~Fig.~\ref{fig:fit_hLbM_data_fit4}). The fitted values for $f_2$ are $0.66(12)$ and $0.98(9)$ for \gls{LL} and \gls{DD} tracks, respectively, differ strongly and cannot be physically motivated.
+    \item We repeat the fit in configuration 3 but this time replace the resolution function used for smearing the \Dstarz kernel functions $\mathcal{K}$ with the centralized \Xibz signal shape.
+    \item We artificially enrich the data set by drawing $n$ instances from a smeared, unpolarized \decay{\Lb}{\Dz\Sz} distribution, as derived in Appx.~\ref{chap:apdx_partbkg}, to the recorded data sample. The amount of drawn instances $n$ is fixed to $\sfrac{1}{3}$ of the fitted \Lb signal yield in accordance with our estimations in Sec.~\ref{sec:isospin}. Since we expect genuine \decay{\Lb}{\Dz\Sz} in the recorded data, we consider this is a conservative approximation of this background. We abstain from a similar cross-check of \decay{\Xibz}{\Dz\Sz} decays due to the low \decay{\Xibz}{\Dz\Lz} yields and the unclear branching ratio of the \Sz mode.
+    \item In the previous configurations the mass difference $m(\Xibz) - m(\Lb)$ was fixed to its nominal value $172.5\,\mevcc$. The \gls{pdg} states an uncertainty of $0.4\,\mevcc$ which we use to test the sensitivity of our model to this value by setting $m(\Xibz) - m(\Lb)$ to $172.1\,\mevcc$ (7a) and $172.9\,\mevcc$ (7b).
+\end{enumerate}
+Regarding the yields of the decays \decay{\Lb}{\Dz\Lz} and \decay{\Xibz}{\Dz\Lz}, the results of the outlined fits are compatible and give almost identical values for both modes as listed in Tab.~\ref{tab:fit_rawyields}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=1.]{fit/hLbM_data_fit1.png}
+    \caption{Combined invariant mass of \Dz and \Lz candidates (of both track types), as well as the accumulated projection of the fit in configuration 1. Since $f_2$ is compatible with one (at upper limit), the corresponding \Dstarz background contribution is suppressed (graphically).}
+    \label{fig:fit_hLbM_data_fit1}
+\end{figure}
+
+\begin{table}
+    \centering
+    \caption{Corrected yields as obtained from (unbinned, single-entry) likelihood maximization in the configurations 1 and 3 - 7. The extraction and correction of the yields is discussed in Sec.~\ref{sec:fit_yields}.}
+    \label{tab:fit_rawyields}
+    \begin{tabular}{l%
+                    S[separate-uncertainty=true,table-format=2.0(2)]%
+                    S[separate-uncertainty=true,table-format=2.0(2)]%
+                    S[separate-uncertainty=true,table-format=2.0(2)]%
+                    S[separate-uncertainty=true,table-format=1.0(1)]%
+                    S[separate-uncertainty=true,table-format=1.1(2)]%
+                    S[separate-uncertainty=true,table-format=2.1(2)]}
+        \toprule
+        & \multicolumn{3}{c}{{\decay{\Lb}{\Dz\Lz}}} & \multicolumn{3}{c}{{\decay{\Xibz}{\Dz\Lz}}} \\
+        Configuration & {\gls{LL} \& \gls{DD}} & {\gls{LL}} & {\gls{DD}} & {\gls{LL} \& \gls{DD}} & {\gls{LL}} & {\gls{DD}} \\
+        \midrule
+        Fit 1 & 31 \pm 7 & 16 \pm 5 & 15 \pm 5 & 6 \pm 4 & 3.2 \pm 2.2 & 3.0 \pm 2.2 \\
+        Fit 3 & 32 \pm 7 & 16 \pm 5 & 16 \pm 5 & 6 \pm 4 & 2.8 \pm 2.1 & 2.9 \pm 2.3 \\
+        Fit 4 & 32 \pm 7 & 16 \pm 5 & 16 \pm 5 & 6 \pm 4 & 3.1 \pm 2.2 & 2.9 \pm 2.2 \\
+        Fit 5 & 32 \pm 7 & 16 \pm 5 & 16 \pm 5 & 6 \pm 4 & 2.9 \pm 2.2 & 2.9 \pm 2.3 \\
+        Fit 6 & 32 \pm 7 & 16 \pm 5 & 16 \pm 5 & 6 \pm 4 & 3.0 \pm 2.2 & 3.0 \pm 2.3 \\
+        Fit 7a & 32 \pm 7 & 16 \pm 5 & 16 \pm 5 & 6 \pm 4 & 3.1 \pm 2.3 & 2.8 \pm 2.2 \\
+        Fit 7b & 32 \pm 7 & 16 \pm 5 & 16 \pm 5 & 6 \pm 4 & 3.0 \pm 2.4 & 3.2 \pm 2.3 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Yield Extraction}
+\label{sec:fit_yields}
+According to our definition of the likelihood in Eq.~\eqref{eq:fit_likelihood} the expanded fractions of \decay{\Lb}{\Dz\Lz} and \decay{\Xibz}{\Dz\Lz} are $(1-f_1) \times f_s$ and $(1-f_1) \times (1-f_s)$, respectively.
+The yields for each track type are found by multiplication with the amount of recorded events of the given track type $n_\text{LL}$ and $n_\text{DD}$.
+Consequently, the accumulated expanded fraction for both track types is given by the weighted sum of the track type dependent fractions where $n_\text{LL}$ and $n_\text{DD}$ are the respective weights.
+We note that for estimating the yields by multiplication with $N=n_\text{LL} + n_\text{DD}$, the statistical uncertainty of $n_\text{LL}$ and $n_\text{DD}$ only contributes in $N$, not in the weights since they are part of the chosen (exact) projection of the fit.\footnote{This Poisson part contributes less than $7\,\%$ to the total uncertainty of the estimated yields. The rest is the multinomial error.}
+Besides that, we find that ordinary error propagation with the fitted correlations of $f_1$ and $f_s$ and symmetric uncertainties is sufficient due to the low asymmetry of each of the respective asymmetric uncertainties of $3\,\%$ or less.
+
+In order to investigate a possible bias of the yields and to test the validity of the error estimates we run a pseudo-experiment where we draw $N=n_\text{LL} + n_\text{DD}$ random events from the fitted \gls{pdf} (configuration 1) and apply the very same unbinned maximum likelihood fit to these generated data that was used to obtain the parameters of the \gls{pdf} itself. 
+In Fig.~\ref{fig:fit_toys_bias} we show the distribution of the fitted yields of the \decay{\Lb}{\Dz\Lz} and \decay{\Xibz}{\Dz\Lz} components after \num{1000} consecutive runs of the outlined technique. (Also see Appx.~\ref{chap:apdx_fitsupp} for more figures of the pseudo-experiments.)
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \centering
+        \includegraphics[scale=1.]{fit/hnLb.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\textwidth}
+        \centering
+        \includegraphics[scale=1.]{fit/hnXib.png}
+    \end{subfigure}
+    \caption{Difference of the fitted signal yields of pseudo-experiments and recorded data (residual) where the latter was used during generation of the former, as well as the difference of the respective expected and actual sample mean ($\bar r$) and standard deviation ($\sigma$). If $\bar r = 0$ and if the standard deviation is consistent with those found by the fit to recorded data, then the fit is unbiased and has valid error estimations, respectively.}
+    \label{fig:fit_toys_bias}
+\end{figure}
+For an unbiased fit with valid error estimates, both distributions should be distributed according to a clipped Gaussian distribution (\cf{} Appx.~\ref{chap:apdx_clipgaus}).
+If so, the sample mean and the standard deviation would follow Eq.~\eqref{eq:apdx_clipgaus_mean} and Eq.~\eqref{eq:apdx_clipgaus_std}, respectively, and the difference of the expected and actual sample mean (referred to as $\bar r$ in Fig.~\ref{fig:fit_toys_bias}) should be compatible with zero.
+From Fig.~\ref{fig:fit_toys_bias} we see that the expectations are met for both standard deviations and the mean value of the pseudo-experiments of the \decay{\Lb}{\Dz\Lz} fit, within the respective uncertainties, corresponding to a valid error estimation and an unbiased fit, respectively.
+For fitted \decay{\Xibz}{\Dz\Lz} yields though, the results are larger by an offset of $0.29(14)$ on average, which is less than $5\,\%$ of the nominal value.
+In a first order approximation we correct for this bias by subtracting fitted yields with the offset.
+The corrected signal yields are listed in Tab.~\ref{tab:fit_rawyields}.
+
+\section{Validation of Yield Significances with Pseudo-Experiments}
+\label{sec:fit_wilkstest}
+When calculating the signal yield significances we made use of Wilks theorem~\cite{wilkstheorem} that states, as the sample size tends to infinity, twice the log-likelihood ratio
+\begin{equation*}
+    2 \, \log \frac{\mathcal{L}_1}{\mathcal{L}_2} \equiv 2 \, \Delta\!\log \mathcal{L} \,,
+\end{equation*}
+tends to a $\chi^2$-distribution with $k$ \gls{dof}, where $k$ is the absolute difference of the \gls{dof} of $\mathcal{L}_1$ and $\mathcal{L}_2$.
+This approximation works best if all $k$ \gls{dof} are uncorrelated (trivially given for $k=1$), but quickly becomes worse otherwise.
+In order to verify the quality of the approximation we again use a pseudo-experiment.
+We generate three sample sets where the first consists of instances drawn from the full fitted \gls{pdf}, and the latter two are drawn from a modified \gls{pdf} where $f_s$ is set to zero and one to disable the \Lb and \Xibz signal component, respectively, and $f_1$ is adjusted to retain the same ratio between the remaining signal mode and the combinatorial background~$\mathcal{B}$ (\cf{}~Appx.~\ref{chap:apdx_fitsupp} and in particular Fig.~\ref{fig:fit_toy_pdf_cdf} and Fig.~\ref{fig:fit_hLbM_toy_noLb} for more details).
+In total we generate \num{1000} samples for each set and track type, and each sample consists of $50$ ($70$) instances which corresponds to the amount of events of \gls{LL} (\gls{DD}) tracks within the fit range.
+Each sample is fitted (in configuration 2, \cf{} Sec.~\ref{sec:fit_model}) and the log-likelihood ratios are calculated.
+The resulting distribution of twice these ratios is shown in Fig~\ref{fig:toyfit_deltaL_noLbXib}, as well as the expected (clipped) $\chi^2$-distribution as derived in Appx.~\ref{chap:apdx_clipgaus}.
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \centering
+        \includegraphics[scale=1.]{fit/deltaL_noLb.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\textwidth}
+        \centering
+        \includegraphics[scale=1.]{fit/deltaL_noXib.png}
+    \end{subfigure}
+    \caption{Distribution of twice the log-likelihood ratio for \num{1000} samples of a pseudo-experiment (Toy MC) used for validating the estimated \Lb (left) and \Xibz (right) yield significances. The samples are generated under the null hypothesis (no signal) and can thus benchmark our actual observation of twice the log-likelihood ratio of roughly $31$ (left) and $3$ (right). The validity is based on Wilks theorem and is ensured, when the distribution follows a (clipped) $\chi^2$-distribution (dashed line).} 
+    \label{fig:toyfit_deltaL_noLbXib}
+\end{figure}
+The distributions appear to be in good agreement with the expected (clipped) $\chi^2$-distributions and thus validate the estimated yield significance.

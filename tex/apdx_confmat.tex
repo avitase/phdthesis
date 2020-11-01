@@ -1,0 +1,31 @@
+\chapter{Confusion Matrix}
+\label{chap:confmat}
+Our definitions of \textit{true} and \textit{false}, as well as \textit{positive} and \textit{negative} in the context of classification throughout the present analysis are listed in the confusion matrix, shown in Fig.~\ref{fig:confmat}.
+The matrix reads as following: a row listed the predicted class label and a column shows the genuine class label, \eg{}, we refer to events that are predicted being of class \textit{background}, but are actually genuine \textit{signal} events as \gls{fn}, whereas we refer to genuine background events, that are spuriously classified as \textit{signal}, as \gls{fp}.
+
+\begin{figure}[htbp]
+    \centering
+    \setlength\unitlength{.8cm}
+    \begin{picture}(4,5.5)
+        \multiput(0,0)(0,2){3}{\line(1,0){4}}
+        \multiput(0,0)(2,0){3}{\line(0,1){4}}
+
+        \put(1,1){\makebox(0,0){FN}}
+        \put(3,1){\makebox(0,0){TN}}
+
+        \put(1,3){\makebox(0,0){TP}}
+        \put(3,3){\makebox(0,0){FP}}
+
+        \put(-.7,3){\rotatebox[origin=c]{90}{Sig.}}
+        \put(-.7,1){\rotatebox[origin=c]{90}{Bkg.}}
+
+        \put(1,4.5){\makebox(0,0){Sig.}}
+        \put(3,4.5){\makebox(0,0){Bkg.}}
+
+        \put (-1.5,2){\rotatebox[origin=c]{90}{Predicted}}
+        \put(2,5.3){\makebox(0,0){Actual}}
+    \end{picture}
+    \caption{Confusion matrix as used in the present analysis for the classes \textit{signal} (Sig.) and \textit{background} (Bkg.). The abbreviations \gls{tp}, \gls{fp}, \gls{fn} and \gls{tn} refer to \textit{true positive}, \textit{false positive}, \textit{false negative}, and \textit{true negative}, respectively.}
+    \label{fig:confmat}
+\end{figure}
+

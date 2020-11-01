@@ -1,0 +1,273 @@
+\documentclass[%
+a4paper,%
+chapterprefix,%
+numbers=noenddot,%
+10pt,%
+caption=tableheading]{scrbook}
+
+\usepackage[top=3cm,bottom=5cm,inner=3cm,outer=3.5cm,twoside]{geometry} 
+\usepackage[a-1b]{pdfx}
+
+\usepackage{ifthen}
+\newboolean{printversion}
+\setboolean{printversion}{false}
+
+\usepackage[ngerman,english]{babel}
+\selectlanguage{english}
+
+%\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+
+\ifthenelse{\boolean{printversion}}{%
+\hypersetup{colorlinks=true,allcolors=black}}{%
+\hypersetup{%
+colorlinks,breaklinks,%
+urlcolor=[rgb]{0,.5,.5},%
+linkcolor=[rgb]{0,.5,.5},%
+citecolor=[rgb]{0,.5,.5}}}
+
+\newboolean{articletitles}
+\setboolean{articletitles}{true}
+
+\newboolean{uprightparticles}
+\setboolean{uprightparticles}{false}
+
+\newboolean{inbibliography}
+\setboolean{inbibliography}{false} 
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{slashed}
+\usepackage{bm}
+\usepackage{xfrac}
+
+\usepackage{enumitem}
+
+\usepackage[hypcap=true]{caption}
+\captionsetup[figure]{labelfont={bf},name={Fig.},labelsep=period}
+\captionsetup[table]{labelfont={bf},name={Tab.},labelsep=period}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO,RE]{}
+\fancyhead[LE]{\nouppercase{\leftmark}}
+\fancyhead[RO]{\nouppercase{\rightmark}}
+\fancyfoot[CE,CO]{---~\thepage{}~---}
+\fancyfoot[LE,RO]{}
+
+\fancypagestyle{plain}{%
+    \fancyhf{}%
+    \fancyfoot[C]{---~\thepage{}~---}%
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\usepackage{subcaption}
+\usepackage{graphicx}
+\graphicspath{{../img/}}
+
+\usepackage{rotating}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes,arrows,positioning}
+
+\usepackage[separate-uncertainty=true]{siunitx}
+\usepackage{csquotes}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage[nottoc]{tocbibind}
+
+\usepackage[toc,numberedsection=nameref]{glossaries}
+\setglossarypreamble[main]{\label{glossary}}
+\input{glossary}
+
+\input{lhcb-symbols-def}
+\input{my-symbols}
+
+\newcommand{\chapquote}[2]{%
+    \begin{quotation}%
+        \textit{#1}%
+    \end{quotation}%
+    \begin{flushright}%
+        --- #2%
+    \end{flushright}%
+}
+
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
+
+\begin{document}
+
+\pagenumbering{roman}
+
+\subject{Dissertation}
+\title{Search for Rare $b$ to Open-Charm Two-Body Decays of Baryons at LHCb}
+\author{Nis Meinert}
+\date{Juli 2020}
+
+%\maketitle
+\makeatletter
+\begin{titlepage}
+    \begin{center}
+        {\hphantom{42}}
+
+        \scalebox{2}{\textbf{Search for Rare $b$ to Open-Charm Two-Body}}\\
+        \vspace{.3cm}
+        \scalebox{2}{\textbf{Decays of Baryons at LHCb}}
+
+        \vspace{1cm}
+
+        \includegraphics[scale=1.]{unilogo.png}
+
+        \vspace{1cm}
+
+        {\textbf{\Large Dissertation}}
+
+        \vspace{.5cm}
+
+        {for the degree of \\ \textit{doctor rerum naturalium} (\textit{Dr.\ rer.\ nat.})}
+
+        \vspace{.5cm}
+
+        {submitted by}
+
+        \vspace{.1cm}
+
+        {M.Sc.\ Nis Meinert}
+
+        \vspace{.1cm}
+
+        {to the Faculty of Mathematics and Natural Sciences \\ of the University of Rostock, Germany}
+
+        \vspace{3cm}
+
+        {Rostock, Germany}
+
+        \vspace{.1cm}
+        
+        {Juni 2020}
+    \end{center}
+\end{titlepage}
+\makeatother
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\clearpage
+{
+    \thispagestyle{empty}
+
+    {\noindent \Large Referees:}
+
+    \vspace{.3cm}
+
+    \noindent \textbf{Privatdozent Dr. Roland Waldi}
+
+    \vspace{.1cm}
+
+    \noindent Institut für Physik, Universität Rostock \\
+    Albert-Einstein-Str.\ 23 \\
+    D-18059 Rostock, Germany
+
+    \vspace{.3cm}
+
+    \noindent \textbf{Prof.\ Dr.\ Bernhard Spaan}
+
+    \vspace{.1cm}
+
+    \noindent Experimentelle Physik 5, Technische Universität Dortmund \\
+    Otto-Hahn-Str.\ 4a \\
+    D-44227 Dortmund, Germany
+
+    \vspace{1cm}
+
+    \noindent Opening of the doctoral degree procedure: 24.06.2020 \\
+    Date of scientific colloquium: 09.10.2020
+
+    \vfill
+
+    \noindent \enquote{Everything should be built top-down, except the first time.} \\
+    --- Alan Perlis, first recipient of the Turing Award.
+}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+        
+\clearpage
+{
+    \thispagestyle{empty}
+    \include{abstract}
+}
+
+\include{preface}
+\include{conventions}
+
+{\hypersetup{colorlinks,breaklinks,urlcolor=[rgb]{0,0,0},linkcolor=[rgb]{0,0,0},citecolor=[rgb]{0,0,0}}
+\tableofcontents}
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+%\part{Introduction}
+\input{theory}
+\input{detector}
+
+%\part{Analysis}
+\input{stripping_effs}
+
+\input{weights}
+\input{mva}
+\input{norm}
+\input{bkgs}
+\input{fit}
+\input{br}
+
+\newpage
+\printglossaries
+\input{bibliography}
+
+\appendix
+%\part{Appendix}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\addtocontents{lof}{\protect\setcounter{tocdepth}{0}}
+
+\input{apdx_stripeff}
+\input{apdx_stripsels}
+\input{apdx_dtf}
+\input{apdx_fitprob}
+\input{apdx_cspline}
+\input{apdx_weights}
+\input{apdx_confmat}
+\input{apdx_crossval}
+\input{apdx_pca}
+\input{apdx_svm}
+\input{apdx_forest}
+\input{apdx_mva}
+\input{apdx_mva_xcheck}
+\input{apdx_charmlessrefl}
+\input{apdx_partbkg}
+\input{apdx_fit}
+\input{apdx_pdfs}
+\input{apdx_clipgaus}
+\input{apdx_br}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+        
+\cleardoublepage
+{
+    \thispagestyle{empty}
+    \include{acknowledgement}
+}
+\end{document}
