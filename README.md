@@ -6,7 +6,7 @@ Dissertation for the degree of doctor rerum naturalium (Dr. rer. nat) to the [Fa
  - [Slides of scientific colloquium (pdf)](defence/phddefence_nismeinert.pdf)
  - Opening of the doctoral degree procedure: Jun 2020
  - Date of scientific colloquium: Nov 2020
- - Cite as: [doi.org/10.18453/rosdok_id00002802](https://doi.org/10.18453/rosdok_id00002802)
+ - Cite as: [doi.org/10.18453/rosdok_id00002802](https://doi.org/10.18453/rosdok_id00002802) or [CERN-THESIS-2020-217](https://cds.cern.ch/record/2746434)
 
   ## Abstract
   A search for the rare two-body decays Λb → D°Λ and Ξb° → D°Λ is performed with proton-proton collision data, corresponding to an integrated luminosity of 1/(6 fb), collected by the LHCb experiment at a center-of-mass energy of 13 TeV. The decay Λb → D°Λ is seen with a statistical significance of 5.5 standard deviations, and constitutes the discovery for this decay.
