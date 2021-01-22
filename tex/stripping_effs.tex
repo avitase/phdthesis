@@ -6,7 +6,7 @@ A full \gls{mc} simulation of a single event includes a time consuming simulatio
 The reconstruction efficiency of the \lhcb detector is well below 100\,\%, \eg{}, particles with a transverse momentum below a certain threshold will almost never be stored to disk due to the associated noisy detector response, unmet trigger requirements, or geometric cut-offs.
 During simulations, decays which only produce such particles are skipped to save the time intensive simulation of the detector traversal.
 This so-called \textit{Generator Cut} has no counterpart in recorded data but will not change the overall efficiency when the latter is defined wide enough such that it covers selection requirements which would filter out these events for good.
-For the present analysis the \gls{stripping} phase obeys this requirement such that, from a technical point of view, the product of reconstruction and \gls{stripping} efficiency is given by\footnote{Trigger decisions are only set as \textit{trigger bits} at this point and are thus are not part of any selection requirement yet.}
+For the present analysis the \gls{stripping} phase obeys this requirement such that, from a technical point of view, the product of reconstruction and \gls{stripping} efficiency is given by\footnote{Trigger decisions are only set as \textit{trigger bits} at this point and are thus not part of any selection requirement yet.}
 \begin{equation}
     \label{eq:stripeff_defeps}
     \text{rec.} \times \text{strip.\ eff.} = \varepsilon_{\text{gen}} \times \frac{\texttt{\#DTT}}{\texttt{\#DST}} \,,
